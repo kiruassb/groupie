@@ -24,6 +24,19 @@
         {{ end }}
     </ul>
 </div>
+{{ if .SpotifyID }}
+<h2>🎧 Écouter</h2>
+
+<iframe
+  src="https://open.spotify.com/embed/artist/{{ .SpotifyID }}"
+  width="100%"
+  height="380"
+  frameborder="0"
+  allow="encrypted-media"
+  loading="lazy">
+</iframe>
+{{ end }}
+
 
 </body>
 </html>

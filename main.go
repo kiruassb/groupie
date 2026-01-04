@@ -36,8 +36,25 @@ func GetArtists() ([]models.Artist, error) {
 		return nil, err
 	}
 
+
+	spotifyMap := map[string]string{
+		"Queen":      "1dfeR4HaWDbWqFHLkxsg1d",
+		"Pink Floyd": "0k17h0D3J5VfsdmQ1iZtE9",
+		"SOJA":       "6Fx1cjY6uJqB3FqomkLzXU",
+		"Scorpions":  "27T030eWyCQRmDyuvr1kxY",
+	}
+
+	for i := range artists {
+		if id, ok := spotifyMap[artists[i].Name]; ok {
+			artists[i].SpotifyID = id
+		}
+	}
+
+
 	return artists, nil
 }
+
+
 
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
